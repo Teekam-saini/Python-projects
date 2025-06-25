@@ -1,4 +1,4 @@
-# CLI Jarvis – Gemini Edition (v2)
+# CLI Jarvis – Gemini Edition 
 
 A command-line based personal assistant powered by Google Gemini Pro (via the official `google-generativeai` SDK). This assistant responds to typed commands with clear spoken replies using `pyttsx3` and the `espeak` speech engine.
 
