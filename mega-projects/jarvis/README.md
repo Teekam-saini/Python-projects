@@ -1,31 +1,28 @@
-#  CLI Jarvis – AI Assistant (Mistral-Powered)
+# CLI Jarvis – Gemini Edition (v2)
 
-A command-line virtual assistant that responds to typed commands with smart voice replies, using HuggingFace's Mistral LLM.
+A command-line based personal assistant powered by Google Gemini Pro (via the official `google-generativeai` SDK). This assistant responds to typed commands with clear spoken replies using `pyttsx3` and the `espeak` speech engine.
 
-Created by **Teekam** as a smart, speech-enabled Python-based alternative to voice-only Jarvis systems.
+Built and maintained by Teekam.
 
 ---
 
 ## Features
 
-| Command            | Description                                  |
-|--------------------|----------------------------------------------|
-| `ask <question>`   | Asks Mistral LLM (via HuggingFace)           |
-| `date`             | Tells today’s full date                      |
-| `time`             | Speaks current time                          |
-| `play <song>`      | Opens YouTube to play your song              |
-| `search <query>`   | Opens Google search for your query           |
-| `exit` / `quit`    | Exits the assistant                          |
+| Command             | Description                                       |
+|---------------------|---------------------------------------------------|
+| `chat <question>`   | Ask a smart question using Google Gemini Pro      |
+| `date`              | Get today’s full date                             |
+| `time`              | Get the current time                              |
+| `play <song>`       | Search and play music on YouTube                  |
+| `search <query>`    | Perform a Google search in your browser           |
+| `exit` / `quit`     | Exit the assistant                                |
 
 ---
 
-## Powered By
+## Setup Instructions
 
-- [Mistral-8x7B via HuggingFace Inference API](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)
-- Python libraries:
-  - `pyttsx3` for text-to-speech
-  - `webbrowser` for URL opening
-  - `requests` for API calls
-  - `datetime` for time and date
+### 1. Clone the Repository
 
----
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
