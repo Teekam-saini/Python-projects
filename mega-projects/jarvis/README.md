@@ -1,4 +1,4 @@
-# 🤖 CLI Jarvis – AI Assistant (Mistral-Powered)
+#  CLI Jarvis – AI Assistant (Mistral-Powered)
 
 A command-line virtual assistant that responds to typed commands with smart voice replies, using HuggingFace's Mistral LLM.
 
@@ -6,7 +6,7 @@ Created by **Teekam** as a smart, speech-enabled Python-based alternative to voi
 
 ---
 
-## 🔧 Features
+## Features
 
 | Command            | Description                                  |
 |--------------------|----------------------------------------------|
@@ -19,7 +19,7 @@ Created by **Teekam** as a smart, speech-enabled Python-based alternative to voi
 
 ---
 
-## 🧠 Powered By
+## Powered By
 
 - [Mistral-8x7B via HuggingFace Inference API](https://huggingface.co/mistralai/Mixtral-8x7B-Instruct-v0.1)
 - Python libraries:
