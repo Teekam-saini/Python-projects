@@ -1,20 +1,28 @@
 import webbrowser
 import pyttsx3
-import requests
 import datetime
+import google.generativeai as genai
+import time
 
-HF_API_KEY = "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"
+genai.configure(api_key="AIzaSyCQBCSvYEc-INbWNGTqlB56W_INWA9YxyY")  # Replace with your key
+
+model = genai.GenerativeModel(model_name="gemini-pro")
+
 
 engine =pyttsx3.init()
+engine = pyttsx3.init(driverName='espeak')
 engine.setProperty('rate', 150)
 
+
 def speak(text):
-    print(f"{text}")
+    print(f"jarvis: {text}")
     engine.say(text)
     engine.runAndWait()
+    time.sleep(len(text) * 0.015) 
 
 def search_google(querry):
-    speak(f"searching for querry: {querry}")
+    
+    speak("understood")
     webbrowser.open(f"https://www.google.com/search?q={querry}")
 
 def gettime():
@@ -24,27 +32,12 @@ def gettime():
 
 def ask_gpt(question):
     try:
-        url = "https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1"
-        headers = {
-            "Authorization": f"Bearer {HF_API_KEY}",
-            "Content-Type": "application/json"
-        }
-        payload = {
-            "inputs": f"[INST] {question} [/INST]"
-        }
-        response = requests.post(url, headers=headers, json=payload)
-        response.raise_for_status()
-        data = response.json()
-
-        # Extract and clean the reply
-        generated = data[0]['generated_text']
-        reply = generated.split('[/INST]')[-1].strip()
-
-        speak(reply)
-
+        prompt = f"""Act like Jarvis. Keep answers short and helpful. Question: {question}"""
+        response = model.generate_content(prompt)
+        return speak(response.text.strip())
     except Exception as e:
         speak("Sorry, I couldn't fetch the answer.")
-        print(f" Mistral Error: {e}")
+        print(f"error: {e}")
 def get_date():
     today = datetime.datetime.now().strftime("%A, %d %B %Y")
     speak(f"Today is {today}")
@@ -56,16 +49,21 @@ def play_song(song):
 
 
 def main():
-    speak("Hello Teekam, I am Jarvis. How can I help you?")
+    speak("Hello Teekam, I am Jarvis. How can I help?")
     while True:
         command = input(">>> ").strip().lower()
 
-        if command.startswith("ask "):
-            ask_gpt(command.replace("ask ", ""))
+        if command.startswith("chat "):
+            ask_gpt(command.replace("chat ", ""))
         elif command == "date":
             get_date()
+        elif command =="time":
+            gettime()
         elif command.startswith("play "):
             play_song(command.replace("play ", ""))
+        elif command.startswith("search "):
+            search_google(command.replace("search ", ""))
+
         elif command in ["exit", "quit"]:
             speak("by Teekam.")
             break
