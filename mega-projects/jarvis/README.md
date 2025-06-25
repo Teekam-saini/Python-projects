@@ -18,11 +18,3 @@ Built and maintained by Teekam.
 | `exit` / `quit`     | Exit the assistant                                |
 
 ---
-
-## Setup Instructions
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
