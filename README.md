@@ -13,4 +13,4 @@ Beginner-friendly projects:
 ## 📁 Mega Projects
 More advanced projects:
 - JARVIS Assistant (CLI-based voice assistant)
-- AI Chatbox (Rule-based chatbot)
+
